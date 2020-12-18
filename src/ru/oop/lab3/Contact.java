@@ -45,7 +45,7 @@ public class Contact {
         this.phoneNumbers.get(i).setPhone(phone);
     }
 
-    public String getType(int i) {
+    public PhoneType getType(int i) {
         return this.phoneNumbers.get(i).getType();
     }
 
@@ -67,9 +67,9 @@ public class Contact {
     }
 
     public String getContact() {
-        String str = this.name.getFullName() + " ";
+        StringBuilder str = new StringBuilder(this.name.getFullName() + " ");
         for (PhoneNumber phone : phoneNumbers)
-            str += phone.getPhone() + ", ";
+            str.append(phone.getPhone()).append(", ");
         return str.substring(0, str.length() - 2);
     }
 

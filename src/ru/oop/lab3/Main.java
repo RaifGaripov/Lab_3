@@ -1,5 +1,7 @@
 package ru.oop.lab3;
 
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -41,9 +43,16 @@ public class Main {
 
         System.out.println(phoneBook.seeContact(4));
         System.out.println(phoneBook.seeFullContact(1));
-        phoneBook.outputAllContact();
+        System.out.println("\nСуществующие контакты:");
+        List<String> list = phoneBook.AllContact();
+        list.forEach(System.out::println);
 
-        phoneBook.find("123");
-        phoneBook.find("и");
+        System.out.println("\nНайденные контакты по запросу (\"123\"):");
+        list = phoneBook.find("123");
+        list.forEach(System.out::println);
+
+        System.out.println("\nНайденные контакты по запросу (\"и\"):");
+        list = phoneBook.find("и");
+        list.forEach(System.out::println);
     }
 }

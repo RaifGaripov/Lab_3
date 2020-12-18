@@ -17,8 +17,8 @@ public class PhoneNumber {
         this.phone = phone;
     }
 
-    public String getType() {
-        return this.type.getType();
+    public PhoneType getType() {
+        return this.type;
     }
 
     public void setType(PhoneType type) {
@@ -26,7 +26,7 @@ public class PhoneNumber {
     }
 
     public String getFullPhone() {
-        return this.phone + " " + this.type.getType();
+        return this.phone + " " + this.type;
     }
 
     public void setFullPhone(String phone, PhoneType type) {

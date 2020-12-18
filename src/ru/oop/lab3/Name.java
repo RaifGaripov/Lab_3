@@ -18,7 +18,7 @@ public class Name {
     }
 
     public String getSurname() {
-        return this.second;
+        return second;
     }
 
     public void setSurname(String surname) {
@@ -29,7 +29,7 @@ public class Name {
         String str = this.first;
         if(!this.second.isEmpty())
             str += " " + this.second;
-        return  str;
+        return str;
     }
 
     public void setFullName(String name, String surname) {

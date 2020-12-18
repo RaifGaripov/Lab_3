@@ -1,6 +1,7 @@
 package ru.oop.lab3;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PhoneBook {
     private final ArrayList<Contact> phoneBook;
@@ -49,20 +50,20 @@ public class PhoneBook {
         return this.phoneBook.get(i - 1).getFullContact();
     }
 
-    public void outputAllContact()
+    public List<String> AllContact()
     {
-        System.out.println("Существующие контакты:");
+        List<String> contacts = new ArrayList<>();
         for(Contact contact : this.phoneBook)
-            System.out.format("\t%s\n", contact.getContact());
+            contacts.add(contact.getFullContact());
+        return contacts;
     }
 
-    public void find(String searchStr) {
-        ArrayList<Contact> findList = new ArrayList<>();
+    public List<String> find(String searchStr) {
+        List<String> findList = new ArrayList<>();
         for(Contact contact : this.phoneBook)
             if(contact.getContact().toLowerCase().contains(searchStr.toLowerCase()))
-                findList.add(contact);
-        System.out.println("Найденные контакты по запросу (" + searchStr +"):");
-        for(Contact contact : findList)
-            System.out.format("\t%s\n", contact.getContact());
+                findList.add(contact.getFullContact());
+
+        return findList;
     }
 }
