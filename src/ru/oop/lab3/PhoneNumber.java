@@ -25,7 +25,8 @@ public class PhoneNumber {
         this.type = type;
     }
 
-    public String getFullPhone() {
+    @Override
+    public String toString() {
         return this.phone + " " + this.type;
     }
 

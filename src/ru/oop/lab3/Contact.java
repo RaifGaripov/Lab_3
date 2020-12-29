@@ -3,6 +3,8 @@ package ru.oop.lab3;
 import java.util.ArrayList;
 
 public class Contact {
+
+
     private final Name name;
     private final ArrayList<PhoneNumber> phoneNumbers;
 
@@ -15,6 +17,10 @@ public class Contact {
 
     public String getName() {
         return this.name.getName();
+    }
+
+    public ArrayList<PhoneNumber> getPhoneNumbers() {
+        return phoneNumbers;
     }
 
     public void setName(String name) {
@@ -53,10 +59,6 @@ public class Contact {
         this.phoneNumbers.get(i).setType(type);
     }
 
-    public String getFullPhone(int i) {
-        return this.phoneNumbers.get(i).getFullPhone();
-    }
-
     public void setFullPhone(int i, String phone, PhoneType type) {
         this.phoneNumbers.get(i).setFullPhone(phone, type);
     }
@@ -66,24 +68,15 @@ public class Contact {
         this.phoneNumbers.add(newPhone);
     }
 
-    public String getContact() {
-        StringBuilder str = new StringBuilder(this.name.getFullName() + " ");
-        for (PhoneNumber phone : phoneNumbers)
-            str.append(phone.getPhone()).append(", ");
-        return str.substring(0, str.length() - 2);
-    }
-
-    public String getFullContact() {
-        String str = this.name.getFullName() + " ";
-        for (PhoneNumber phone : phoneNumbers)
-            str += phone.getFullPhone() + ", ";
-        return str.substring(0, str.length() - 2);
-    }
-
     public void setFullContact(String name, String surname, String phone, PhoneType type) {
         this.name.setFullName(name, surname);
         PhoneNumber newPhone = new PhoneNumber(phone, type);
         this.phoneNumbers.clear();
         this.phoneNumbers.add(newPhone);
+    }
+
+    @Override
+    public String toString() {
+        return this.name.getFullName() + " " + this.phoneNumbers.toString();
     }
 }

@@ -42,27 +42,22 @@ public class PhoneBook {
         this.phoneBook.get(i - 1).setFullContact(name, surname, phone, type);
     }
 
-    public String seeContact(int i) {
-        return this.phoneBook.get(i - 1).getContact();
+    public Contact seeContact(int i) {
+        return this.phoneBook.get(i - 1);
     }
 
-    public String seeFullContact(int i) {
-        return this.phoneBook.get(i - 1).getFullContact();
-    }
-
-    public List<String> AllContact()
-    {
-        List<String> contacts = new ArrayList<>();
-        for(Contact contact : this.phoneBook)
-            contacts.add(contact.getFullContact());
+    public List<Contact> AllContact() {
+        List<Contact> contacts = new ArrayList<>();
+        for (Contact contact : this.phoneBook)
+            contacts.add(contact);
         return contacts;
     }
 
-    public List<String> find(String searchStr) {
-        List<String> findList = new ArrayList<>();
-        for(Contact contact : this.phoneBook)
-            if(contact.getContact().toLowerCase().contains(searchStr.toLowerCase()))
-                findList.add(contact.getFullContact());
+    public List<Contact> find(String searchStr) {
+        List<Contact> findList = new ArrayList<>();
+        for (Contact contact : this.phoneBook)
+            if (contact.toString().toLowerCase().contains(searchStr.toLowerCase()))
+                findList.add(contact);
 
         return findList;
     }

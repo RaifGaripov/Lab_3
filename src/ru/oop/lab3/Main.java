@@ -42,9 +42,9 @@ public class Main {
         phoneBook.changeFullContact(5, "Сергей", "Сергеев", "89905377105", PhoneType.HOME);
 
         System.out.println(phoneBook.seeContact(4));
-        System.out.println(phoneBook.seeFullContact(1));
+        System.out.println(phoneBook.seeContact(1));
         System.out.println("\nСуществующие контакты:");
-        List<String> list = phoneBook.AllContact();
+        List<Contact> list = phoneBook.AllContact();
         list.forEach(System.out::println);
 
         System.out.println("\nНайденные контакты по запросу (\"123\"):");
